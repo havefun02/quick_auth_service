@@ -7,6 +7,7 @@ import { getEnvPath } from './common/helper/env.helper';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { FileModule } from './api/file/file.module';
 
 const envFilePath: string = getEnvPath(`${__dirname}/common/envs`);
 console.log(envFilePath);
@@ -18,6 +19,7 @@ console.log(envFilePath);
     }),
     TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     ApiModule,
+    FileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
